@@ -2,15 +2,14 @@ package dev.m2t.dbmanager.dto.request;
 
 import dev.m2t.dbmanager.model.DatabaseLevelEnum;
 
-public class CreateDatabaseRequestDto {
+public class ListDatabasesRequestDto {
     private String name;
     private Integer level;
 
-    public CreateDatabaseRequestDto() {
-
+    public ListDatabasesRequestDto() {
     }
 
-    public CreateDatabaseRequestDto(String name, Integer level) {
+    public ListDatabasesRequestDto(String name, Integer level) {
         this.name = name;
         this.level = level;
     }

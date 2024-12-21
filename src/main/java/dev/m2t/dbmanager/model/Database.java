@@ -10,13 +10,15 @@ public class Database {
     private Long id;
 
     private String name;
+    private DatabaseLevelEnum level;
 
     public Database() {
     }
 
-    public Database(Long id, String name) {
+    public Database(Long id, String name, DatabaseLevelEnum level) {
         this.id = id;
         this.name = name;
+        this.level = level;
     }
 
     public Long getId() {
@@ -33,5 +35,13 @@ public class Database {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public DatabaseLevelEnum getLevel() {
+        return level;
+    }
+
+    public void setLevel(DatabaseLevelEnum level) {
+        this.level = level;
     }
 }
