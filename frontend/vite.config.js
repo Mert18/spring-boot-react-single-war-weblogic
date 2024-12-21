@@ -8,4 +8,13 @@ export default defineConfig({
     outDir: 'dist',
   },
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false, // If your backend uses HTTPS, set this to true
+      },
+    },
+  },
 })

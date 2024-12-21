@@ -3,19 +3,36 @@ import "./App.css";
 import { useEffect, useState } from "react";
 
 function App() {
+
   const [paging, setPaging] = useState({
-    page: 0,
+    number: 0,
     size: 10,
+    numberOfElements: null
+  });
+
+  const [filter, setFilter] = useState({
+    name: "",
+    level: null,
   });
   const [databases, setDatabases] = useState([]);
 
   useEffect(() => {
-    fetch("/api/database")
-      .then((response) => response.json())
-      .then((json) =>
-        setResult("Received From Spring: " + JSON.stringify(json))
-      );
-  }, []);
+    fetch("/api/database/list?number=" + paging.number + "&size=" + paging.size, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(filter),
+    }).then(async (response) => {
+      const res = await response.json();
+      setDatabases(res.data.content)
+    });
+  }, [paging, filter]);
+
+  useEffect(() => {
+    console.log("dbs changed: ", databases)
+  }, [databases])
+
   return (
     <div>
       <nav>

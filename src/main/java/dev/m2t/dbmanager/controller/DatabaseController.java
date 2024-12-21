@@ -31,8 +31,8 @@ public class DatabaseController {
     }
 
     @PostMapping("/list")
-    public ResponseEntity<BaseResponse<Page<Database>>> listDatabases(@RequestParam int page, @RequestParam int size, @RequestBody ListDatabasesRequestDto filter) {
-        Pageable pageable = PageRequest.of(page, size);
+    public ResponseEntity<BaseResponse<Page<Database>>> listDatabases(@RequestParam int number, @RequestParam int size, @RequestBody ListDatabasesRequestDto filter) {
+        Pageable pageable = PageRequest.of(number, size);
         return ResponseEntity.ok(databaseService.listDatabases(pageable, filter));
     }
 }

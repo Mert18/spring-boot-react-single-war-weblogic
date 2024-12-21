@@ -67,7 +67,7 @@ public class DatabaseService {
         List<Predicate> predicates = new ArrayList<>();
 
         if (filter.getName() != null) {
-            predicates.add(cb.like(root.get("name"), "%" + filter.getName() + "%"));
+            predicates.add(cb.like(cb.lower(root.get("name")), "%" + filter.getName().toLowerCase() + "%"));
         }
         if (filter.getLevel() != null) {
             predicates.add(cb.equal(root.get("level"), DatabaseLevelEnum.fromCode(filter.getLevel())));
