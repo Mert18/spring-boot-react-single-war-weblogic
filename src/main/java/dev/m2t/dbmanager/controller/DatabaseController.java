@@ -15,13 +15,13 @@ public class DatabaseController {
         this.databaseService = databaseService;
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<BaseResponse> createDatabase(@RequestBody CreateDatabaseRequestDto createDatabaseRequestDto) {
         return ResponseEntity.ok(databaseService.createDatabase(createDatabaseRequestDto));
     }
 
-    @GetMapping
-    public ResponseEntity<BaseResponse> getDatabase(@RequestParam String id) {
+    @GetMapping("/read")
+    public ResponseEntity<BaseResponse> getDatabase(@RequestParam Long id) {
         return ResponseEntity.ok(databaseService.getDatabase(id));
     }
 }

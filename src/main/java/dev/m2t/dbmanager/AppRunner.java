@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class AppRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
-//        System.out.println("Application is running...");
-//        Thread.currentThread().join(); // Keeps the app alive
+        System.out.println("Application is running...");
+        Thread.currentThread().join(); // Keeps the app alive
     }
 }
